@@ -1,0 +1,37 @@
+output=$(curl 'https://www.cereproc.com/themes/benchpress/livedemo.php' \
+  -H '0: k' \
+  -H '1: e' \
+  -H '2: y' \
+  -H '3: :' \
+  -H '4: 5' \
+  -H '5: f' \
+  -H '6: 6' \
+  -H '7: 8' \
+  -H '8: z' \
+  -H '9: w' \
+  -H '10: k' \
+  -H '11: n' \
+  -H '12: j' \
+  -H '13: 8' \
+  -H '14: d' \
+  -H 'authority: www.cereproc.com' \
+  -H 'pragma: no-cache' \
+  -H 'cache-control: no-cache' \
+  -H 'dnt: 1' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36' \
+  -H 'content-type: text/xml' \
+  -H 'accept: */*' \
+  -H 'x-requested-with: XMLHttpRequest' \
+  -H 'sec-ch-ua: " Not A;Brand";v="99", "Chromium";v="90", "Google Chrome";v="90"' \
+  -H 'origin: https://www.cereproc.com' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'referer: https://www.cereproc.com/en/home' \
+  -H 'accept-language: en-US,en;q=0.9,la;q=0.8' \
+  -H 'cookie: has_js=1; Drupal.visitor.liveDemo=5f68zwknj8d; _ga=GA1.2.1780166503.1622276399; _gid=GA1.2.1213132127.1622276399; _gat=1' \
+  --data-raw $'<speakExtended key=\'5f68zwknj8d\'><voice>Hannah</voice><text>$1</text><audioFormat>ogg</audioFormat>\n</speakExtended>' \
+  --compressed);
+curl "${output:61:83}" > "${1:0:20}".ogg;
+echo "Done";
